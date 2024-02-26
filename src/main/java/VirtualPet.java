@@ -30,6 +30,10 @@ public abstract class VirtualPet {
 
     }
 
+    public VirtualPet(String petName) {
+        this.petName = petName;
+    }
+
     public abstract void petHappiness();
 
     public void tick() {
