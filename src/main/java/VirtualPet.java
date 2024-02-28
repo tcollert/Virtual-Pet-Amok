@@ -8,6 +8,7 @@ public abstract class VirtualPet {
     protected int petWasteLitterBox;
     protected int petWasteCage;
 
+
     public VirtualPet(String petName, String petDescription, int petHealth) {
         this.petName = petName;
         this.petDescription = petDescription;
@@ -33,7 +34,6 @@ public abstract class VirtualPet {
     public VirtualPet(String petName) {
         this.petName = petName;
     }
-
     public abstract void petHappiness();
 
     public void tick() {
@@ -128,6 +128,7 @@ public abstract class VirtualPet {
     public void setPetWasteCage(int petWasteCage) {
         this.petWasteCage = petWasteCage;
 
+    
     }
 
 }

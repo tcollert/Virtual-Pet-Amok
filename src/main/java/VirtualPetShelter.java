@@ -4,10 +4,10 @@ import java.util.Map;
 
 public class VirtualPetShelter {
 
-    private Map<String, VirtualPet> sonicSuperStars = new HashMap<String, VirtualPet>();
-  
-    public VirtualPetShelter() {
-        sonicSuperStars = new HashMap<String, VirtualPet>();
+    Map<String, VirtualPet> sonicSuperStars = new HashMap<String, VirtualPet>();
+
+    public VirtualPetShelter(Map<String, VirtualPet> sonicSuperStars) {
+        this.sonicSuperStars = sonicSuperStars;
     }
 
     public String getSonicAndFriends() {
@@ -36,20 +36,22 @@ public class VirtualPetShelter {
         sonicSuperStars.remove(pet.getPetName(), pet);
     }
 
-    public void feedSonicAndFriends() {
+    public void feedMyPet() {
         for (Map.Entry<String, VirtualPet> sonicSuperStars : sonicSuperStars.entrySet()) {
-            OrganicGoodGuys organicPet =  sonicSuperStars.getValue();
-            organicPet.feedMe();
+            VirtualPet food = sonicSuperStars.getValue();
+        VirtualPet.feedMe();
         }
     }
 
-    public void hydrateSonicAndFriends() {
-        for (Map.Entry<String, VirtualPet> sonicSuperStars: sonicSuperStars.entrySet()) {
-            VirtualPet organicPet = sonicSuperStars.getValue();
-            organicPet.hydration();
+    
+    public void hydrateMyPet() {
+        for (Map.Entry<String, VirtualPet> sonicSuperStars : sonicSuperStars.entrySet()) {
+            VirtualPet water = sonicSuperStars.getValue();
+            VirtualPet.hydration();
         }
     }
 
+   
     public void playWithOneFriend(String requestedFriendToPlay) {
         for (Map.Entry<String, VirtualPet> entry : sonicSuperStars.entrySet()) {
             String petName = entry.getKey();
@@ -58,23 +60,24 @@ public class VirtualPetShelter {
             }
         }
     }
-  
+
     public void maintenanceAll() {
         for (VirtualPet virtualPet : getAllPets()) {
             if (virtualPet instanceof RoboticBadGuys) {
-           ((RoboticBadGuys) virtualPet).maintenance();
-        
+                ((RoboticBadGuys) virtualPet).maintenance();
+
+            }
         }
     }
-    }
-        public void oilChangeAll() {
-            for (VirtualPet virtualPet : getAllPets()) {
-                if (virtualPet instanceof RoboticBadGuys) {
-                    ((RoboticBadGuys) virtualPet).oilChange();
-                }
 
+    public void oilChangeAll() {
+        for (VirtualPet virtualPet : getAllPets()) {
+            if (virtualPet instanceof RoboticBadGuys) {
+                ((RoboticBadGuys) virtualPet).oilChange();
+            }
+
+        }
     }
-}
 
     // update tick for all pets
     public void updateAllTick(Collection<VirtualPet> pets) {
@@ -86,16 +89,18 @@ public class VirtualPetShelter {
 
     // iterate through pets and display them
     public void allPetStatus(Collection<VirtualPet> pets) {
-        System.out.println("\nNAME\t\t|HUNGER\t|THIRST\t|BOREDOM|DESCRIPTION\t|HEALTH\t|CAGE CLEANLINESS\t|LITTER BOX CLEANLINESS  |");
-        System.out.println("------------------------|-------|-------|-------|--------------------|---------|------------------|-------------------|");
+        System.out.println(
+                "\nNAME\t\t|HUNGER\t|THIRST\t|BOREDOM|DESCRIPTION\t|HEALTH\t|CAGE CLEANLINESS\t|LITTER BOX CLEANLINESS  |");
+        System.out.println(
+                "------------------------|-------|-------|-------|--------------------|---------|------------------|-------------------|");
         for (VirtualPet pet : pets) {
             System.out.println(pet.getPetName() + "\t\t| " + pet.getPetHungerLevel()
                     + "\t| " + pet.getPetThirstLevel() + "\t| " + pet.getPetBoredomLevel()
-                    + "\t| " + pet.getPetDescription() + "\t| "  + pet.getPetHealth() + "\t| "
-                     + pet.getPetWasteCage() + "\t| "  + pet.getPetWasteLitterBox() + "\t| ");
+                    + "\t| " + pet.getPetDescription() + "\t| " + pet.getPetHealth() + "\t| "
+                    + pet.getPetWasteCage() + "\t| " + pet.getPetWasteLitterBox() + "\t| ");
         }
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+        System.out.println(
+                "-----------------------------------------------------------------------------------------------------------------------");
 
     }
 }
-

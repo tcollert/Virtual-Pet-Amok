@@ -1,7 +1,7 @@
 public interface OrganicPets {
     
-void feedMe();
-void running();
-void hydration();
+public void feedMe();
+public void running();
+public void hydration();
 
 }

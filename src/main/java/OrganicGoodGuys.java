@@ -13,6 +13,8 @@ public class OrganicGoodGuys extends VirtualPet implements OrganicPets {
 
     }
 
+
+
     @Override
     public void running() {
         int running = this.getPetBoredomLevel();

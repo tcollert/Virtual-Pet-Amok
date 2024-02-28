@@ -24,15 +24,7 @@ public class RoboticBadGuys extends VirtualPet implements RoboticPets {
         int health = this.getPetHealth();
         int updatedPetHappiness = health + 10;
         this.setPetHealth(updatedPetHappiness);
-    }
-
-    public void maintenanceAll() {
-        for (RobtoticPets roboticPets : getPetName()) {
-            if (roboticsPets instanceof RoboticBadGuys) {
-                ((RoboticBadGuys) roboticPets).maintenance();
 
             }
-        }
-    }
 
 }
