@@ -1,63 +1,62 @@
+import java.util.Random;
+
 public abstract class VirtualPet {
+
     protected String petName;
     protected String petDescription;
-    protected int petHungerLevel;
-    protected int petThirstLevel;
     protected int petBoredomLevel;
     protected int petHealth;
-    protected int petWasteLitterBox;
-    protected int petWasteCage;
+    protected int petHappiness;
 
+    protected int lowLevel = 0;
+    protected int highLevel = 100;
+    protected int failLevel = (int) (highLevel / 1.25);
+    protected int newAmt = 5;
+    protected int newAmtMult = 4;
 
-    public VirtualPet(String petName, String petDescription, int petHealth) {
+    protected Random run = new Random();
+
+    public void walk() {
+        if (run.nextBoolean()) {
+            petBoredomLevel -= newAmt + newAmtMult;
+            if (petBoredomLevel < lowLevel) {
+                petBoredomLevel = lowLevel;
+            }
+        }
+    }
+
+    public VirtualPet(String petName, String petDescription) {
         this.petName = petName;
         this.petDescription = petDescription;
-        this.petHealth = petHealth;
-        this.petHungerLevel = 50;
-        this.petThirstLevel = 50;
         this.petBoredomLevel = 50;
         this.petHealth = 50;
 
     }
 
-    public VirtualPet(String petName, String petDescription, int petHungerLevel, int petThirstLevel,
-            int petBoredomLevel, int petHealth) {
-        this.petName = petName;
-        this.petDescription = petDescription;
-        this.petHungerLevel = petHungerLevel;
-        this.petThirstLevel = petThirstLevel;
-        this.petBoredomLevel = petBoredomLevel;
-        this.petHealth = petHealth;
-
-    }
-
     public VirtualPet(String petName) {
         this.petName = petName;
+
+        petHappiness += newAmt + newAmtMult;
+        if (petHappiness > highLevel) {
+            petHappiness = highLevel;
+        }
     }
+
+    public abstract void condition();
+
+    public abstract void feedMe();
+
+    public abstract void hydration();
+
+    public abstract void running();
+
     public abstract void petHappiness();
 
-    public void tick() {
-        // increase this calling object's thirst, hunger, boredom -using getters and
-        // setters
+    public abstract void tick();
+    // increase this calling object's thirst, hunger, boredom -using getters and
+    // setters
 
-        int currentHungerLevel = this.getPetHungerLevel();
-        this.setPetHungerLevel(currentHungerLevel + 1);
-
-        int currentThirstLevel = this.getPetThirstLevel();
-        this.setPetThirstLevel(currentThirstLevel + 1);
-
-        int currentBoredomLevel = this.getPetBoredomLevel();
-        this.setPetBoredomLevel(currentBoredomLevel + 1);
-
-        int currentPetHealth = this.getPetHealth();
-        this.setPetHealth(currentPetHealth + 1);
-
-        int currentPetWasteCage = this.getPetWasteCage();
-        this.setPetWasteCage(currentPetWasteCage + 1);
-
-        int currentPetWasteLitterBox = this.getPetWasteLitterBox();
-        this.setPetWasteLitterBox(currentPetWasteLitterBox + 1);
-    }
+    public abstract void currentStatus();
 
     @Override
     public String toString() {
@@ -70,22 +69,6 @@ public abstract class VirtualPet {
 
     public void setPetName(String petName) {
         this.petName = petName;
-    }
-
-    public int getPetHungerLevel() {
-        return this.petHungerLevel;
-    }
-
-    public void setPetHungerLevel(int petHungerLevel) {
-        this.petHungerLevel = petHungerLevel;
-    }
-
-    public int getPetThirstLevel() {
-        return this.petThirstLevel;
-    }
-
-    public void setPetThirstLevel(int petThirstLevel) {
-        this.petThirstLevel = petThirstLevel;
     }
 
     public int getPetBoredomLevel() {
@@ -113,22 +96,52 @@ public abstract class VirtualPet {
         this.petHealth = petHealth;
     }
 
-    public int getPetWasteLitterBox() {
-        return this.petWasteLitterBox;
+    public int getPetHappiness() {
+        return this.petHappiness;
     }
 
-    public void setPetWasteLitterBox(int petWasteLitterBox) {
-        this.petWasteLitterBox = petWasteLitterBox;
+    public void setPetHappiness(int petHappiness) {
+        this.petHappiness = petHappiness;
     }
 
-    public int getPetWasteCage() {
-        return this.petWasteCage;
+    public int getLowLevel() {
+        return this.lowLevel;
     }
 
-    public void setPetWasteCage(int petWasteCage) {
-        this.petWasteCage = petWasteCage;
+    public void setLowLevel(int lowLevel) {
+        this.lowLevel = lowLevel;
+    }
 
-    
+    public int gethighLevel() {
+        return this.highLevel;
+    }
+
+    public void setMaxLevel(int highLevel) {
+        this.highLevel = highLevel;
+    }
+
+    public int getFailLevel() {
+        return this.failLevel;
+    }
+
+    public void setFailLevel(int failLevel) {
+        this.failLevel = failLevel;
+    }
+
+    public int getNewAmt() {
+        return this.newAmt;
+    }
+
+    public void setNewAmt(int newAmt) {
+        this.newAmt = newAmt;
+    }
+
+    public int getNewAmtMult() {
+        return this.newAmtMult;
+    }
+
+    public void setNewAmtMult(int newAmtMult) {
+        this.newAmtMult = newAmtMult;
     }
 
 }

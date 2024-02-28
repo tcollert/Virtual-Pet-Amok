@@ -4,11 +4,12 @@ import java.util.Map;
 
 public class VirtualPetShelter {
 
-    Map<String, VirtualPet> sonicSuperStars = new HashMap<String, VirtualPet>();
+    Map<String, VirtualPet> ourPets = new HashMap<String, VirtualPet>();
 
-    public VirtualPetShelter(Map<String, VirtualPet> sonicSuperStars) {
-        this.sonicSuperStars = sonicSuperStars;
+    public VirtualPetShelter(Map<String, VirtualPet> ourPets) {
+        this.ourPets = ourPets;
     }
+    @param pet
 
     public String getSonicAndFriends() {
         String friendsList = "";

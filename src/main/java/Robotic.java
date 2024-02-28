@@ -1,30 +1,29 @@
-public class Robotic extends VirtualPet implements Dog {
+import java.util.Random;
 
-    int oilLevel = 50;
-    int condition = 50;
+public abstract class Robotic extends VirtualPet {
 
-    public Robotic(String petName, String petDescription, int petHealth) {
-        super(petName, petDescription, petHealth);
-
+    public Robotic(String petName, String petDescription) {
+        super(petName, petDescription);
+      
     }
 
-    @Override
-    public void oilChange() {
-        oilLevel += 10;
+    protected Random run = new Random();
+
+    protected int oilLevel = 50;
+    protected int condition = 50;
+   
+  
+    public int getOilLevel() {
+        return this.oilLevel;
     }
-
-    @Override
-    public void maintenance() {
-        condition += 10;
-
+    public void setOilLevel(int oilLevel) {
+        this.oilLevel = oilLevel;
     }
-
-    @Override
-    public void petHappiness() {
-        int health = this.getPetHealth();
-        int updatedPetHappiness = health + 10;
-        this.setPetHealth(updatedPetHappiness);
-
-            }
+    public int getCondition() {
+        return this.condition;
+    }
+    public void setCondition(int condition) {
+        this.condition = condition;
+    }
 
 }

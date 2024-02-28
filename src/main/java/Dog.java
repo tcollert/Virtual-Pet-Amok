@@ -1,6 +1,6 @@
 
 public interface Dog {
-void oilChange();
-void maintenance(); 
+public void walk();
+public void cleanCage(); 
 
 }
