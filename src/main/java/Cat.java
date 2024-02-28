@@ -1,4 +1,4 @@
-public interface OrganicPets {
+public interface Cat {
     
 public void feedMe();
 public void running();

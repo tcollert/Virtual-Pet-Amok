@@ -1,5 +1,5 @@
 
-public interface RoboticPets {
+public interface Dog {
 void oilChange();
 void maintenance(); 
 

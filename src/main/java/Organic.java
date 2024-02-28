@@ -1,6 +1,6 @@
-public class OrganicGoodGuys extends VirtualPet implements OrganicPets {
+public class Organic extends VirtualPet implements Cat {
 
-    public OrganicGoodGuys(String petName, String petDescription, int petHealth, int petHungerLevel, int petBoredomLevel, int petThirstLevel) {
+    public Organic(String petName, String petDescription, int petHealth, int petHungerLevel, int petBoredomLevel, int petThirstLevel) {
         super(petName, petDescription, petHealth, petHungerLevel, petBoredomLevel, petThirstLevel);
     
     }

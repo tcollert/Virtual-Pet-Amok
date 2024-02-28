@@ -63,8 +63,8 @@ public class VirtualPetShelter {
 
     public void maintenanceAll() {
         for (VirtualPet virtualPet : getAllPets()) {
-            if (virtualPet instanceof RoboticBadGuys) {
-                ((RoboticBadGuys) virtualPet).maintenance();
+            if (virtualPet instanceof Robotic) {
+                ((Robotic) virtualPet).maintenance();
 
             }
         }
@@ -72,8 +72,8 @@ public class VirtualPetShelter {
 
     public void oilChangeAll() {
         for (VirtualPet virtualPet : getAllPets()) {
-            if (virtualPet instanceof RoboticBadGuys) {
-                ((RoboticBadGuys) virtualPet).oilChange();
+            if (virtualPet instanceof Robotic) {
+                ((Robotic) virtualPet).oilChange();
             }
 
         }
