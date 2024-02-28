@@ -1,9 +1,9 @@
-public class RoboticBadGuys extends VirtualPet implements RoboticPets {
+public class Robotic extends VirtualPet implements Dog {
 
     int oilLevel = 50;
     int condition = 50;
 
-    public RoboticBadGuys(String petName, String petDescription, int petHealth) {
+    public Robotic(String petName, String petDescription, int petHealth) {
         super(petName, petDescription, petHealth);
 
     }
