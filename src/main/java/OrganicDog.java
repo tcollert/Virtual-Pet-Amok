@@ -2,10 +2,9 @@ public class OrganicDog extends Organic implements Dog {
 
     public OrganicDog(String petName, String petDescription) {
         super(petName, petDescription);
-       
+
     }
 
-    
     @Override
     public void feedMe() {
         int feedMe = this.getPetHungerLevel();
@@ -13,6 +12,7 @@ public class OrganicDog extends Organic implements Dog {
         this.setPetHungerLevel(updatedHungerLevel);
 
     }
+
     @Override
     public void hydration() {
         int hydration = this.getPetThirstLevel();
@@ -22,43 +22,53 @@ public class OrganicDog extends Organic implements Dog {
 
     @Override
     public void petHappiness() {
-       int health = this.getPetHealth();
-       int updatedPetHappiness = health + 10;
-       this.setPetHealth(updatedPetHappiness);
+        int health = this.getPetHealth();
+        int updatedPetHappiness = health + 10;
+        this.setPetHealth(updatedPetHappiness);
 
     }
 
-
-    @Override
-    public void running() {
-        int running = this.getPetBoredomLevel();
-        int petHappiness = this.getPetHealth();
-        int noPooInCage = this.getPetWasteCage();
-        int updatedBoredomLevel = running - 10;
-        int updatedPetHealth = petHappiness + 10;
-        int updatedPetWasteCage = noPooInCage - 10;
-        this.setPetBoredomLevel(updatedBoredomLevel);  
-        this.setPetHealth(updatedPetHealth);
-        this.setPetWasteCage(updatedPetWasteCage);
+    public void walk() {
+        if (run.nextBoolean()) {
+            petBoredomLevel -= newAmt + newAmtMult;
+            if (petBoredomLevel < lowLevel) {
+                petBoredomLevel = lowLevel;
+                int petHappiness = this.getPetHealth();
+                int noPooInCage = this.getPetWasteInCage();
+                int updatedPetHealth = petHappiness + 10;
+                int updatedPetWasteCage = noPooInCage - 10;
+                this.setPetHealth(updatedPetHealth);
+                this.setPetWasteInCage(updatedPetWasteCage);
             }
+        }
+    }
+
+    private void setPetWasteInCage(int updatedPetWasteCage) {
+    }
+
+    private int getPetWasteInCage() {
+        return getPetWasteInCage;
+
+    }
 
     @Override
     public void cleanCage() {
-     
+
     }
 
     @Override
     public void condition() {
-        
+
+    }
 
     @Override
     public void tick() {
-      
+
     }
 
     @Override
     public void currentStatus() {
-        
+
     }
 
 }

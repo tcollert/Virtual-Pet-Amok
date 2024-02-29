@@ -36,11 +36,6 @@ public class RoboticDog extends Robotic implements Dog {
     }
 
     @Override
-    public void feedMe() {
-       
-    }
-
-    @Override
     public void tick() {
       
     }
@@ -49,4 +44,5 @@ public class RoboticDog extends Robotic implements Dog {
     public void currentStatus() {
       
     }
+
 }

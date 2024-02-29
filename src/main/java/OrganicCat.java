@@ -1,10 +1,12 @@
 public class OrganicCat extends Organic implements Cat {
 
+    protected static int litterBoxNeedsCleaned = 0;
+
     public OrganicCat(String petName, String petDescription) {
         super(petName, petDescription);
 
     }
-
+  
     @Override
     public void feedMe() {
         int feedMe = this.getPetHungerLevel();
@@ -41,6 +43,11 @@ public class OrganicCat extends Organic implements Cat {
     @Override
     public void currentStatus() {
 
+    }
+
+    @Override
+    public void running() {
+      
     }
 
 }

@@ -4,7 +4,6 @@ public abstract class VirtualPet {
 
     protected String petName;
     protected String petDescription;
-    protected int petBoredomLevel;
     protected int petHealth;
     protected int petHappiness;
 
@@ -16,19 +15,9 @@ public abstract class VirtualPet {
 
     protected Random run = new Random();
 
-    public void walk() {
-        if (run.nextBoolean()) {
-            petBoredomLevel -= newAmt + newAmtMult;
-            if (petBoredomLevel < lowLevel) {
-                petBoredomLevel = lowLevel;
-            }
-        }
-    }
-
     public VirtualPet(String petName, String petDescription) {
         this.petName = petName;
         this.petDescription = petDescription;
-        this.petBoredomLevel = 50;
         this.petHealth = 50;
 
     }
@@ -42,21 +31,15 @@ public abstract class VirtualPet {
         }
     }
 
+
+
     public abstract void condition();
-
-    public abstract void feedMe();
-
-    public abstract void hydration();
-
-    public abstract void running();
 
     public abstract void petHappiness();
 
     public abstract void tick();
-    // increase this calling object's thirst, hunger, boredom -using getters and
-    // setters
 
-    public abstract void currentStatus();
+    public abstract void allPetStatus();
 
     @Override
     public String toString() {
@@ -71,13 +54,7 @@ public abstract class VirtualPet {
         this.petName = petName;
     }
 
-    public int getPetBoredomLevel() {
-        return this.petBoredomLevel;
-    }
-
-    public void setPetBoredomLevel(int petBoredomLevel) {
-        this.petBoredomLevel = petBoredomLevel;
-    }
+ 
 
     public String getPetDescription() {
         return this.petDescription;

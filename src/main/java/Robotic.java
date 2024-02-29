@@ -11,7 +11,23 @@ public abstract class Robotic extends VirtualPet {
 
     protected int oilLevel = 50;
     protected int condition = 50;
-   
+
+    public void oilChange(){
+
+    }
+   public void maintenance(){
+
+   }
+
+   @Override
+   public void tick(){
+    if (oilLevel <= gethighLevel() - getFailLevel()){
+        setPetHealth(getPetHealth() - getNewAmt());
+        if (getPetHealth() < 0){
+            setPetHealth(0);
+        }
+    }
+   }
   
     public int getOilLevel() {
         return this.oilLevel;

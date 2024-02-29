@@ -4,75 +4,72 @@ import java.util.Map;
 
 public class VirtualPetShelter {
 
-    Map<String, VirtualPet> ourPets = new HashMap<String, VirtualPet>();
+    Map<String, VirtualPet> allPets = new HashMap<String, VirtualPet>();
 
-    public VirtualPetShelter(Map<String, VirtualPet> ourPets) {
-        this.ourPets = ourPets;
+    public VirtualPetShelter(Map<String, VirtualPet> allPets) {
+        this.allPets = allPets;
     }
-    @param pet
 
-    public String getSonicAndFriends() {
-        String friendsList = "";
-        for (Map.Entry<String, VirtualPet> entry : sonicSuperStars.entrySet()) {
-            friendsList += (" Pet Name: " + entry.getKey());
-            friendsList += (", Pet Description: " + entry.getValue().getPetDescription());
+    public String getPets() {
+        String petList = "";
+        for (Map.Entry<String, VirtualPet> entry : allPets.entrySet()) {
+            petList += (" Pet Name: " + entry.getKey());
+            petList += (", Pet Description: " + entry.getValue().getPetDescription());
 
         }
-        return friendsList;
+        return petList;
     }
 
     public void addPet(VirtualPet pet) {
-        sonicSuperStars.put(pet.getPetName(), pet);
+        allPets.put(pet.getPetName(), pet);
     }
 
     public VirtualPet findPet(String petName) {
-        return sonicSuperStars.get(petName);
+        return allPets.get(petName);
     }
 
-    public Collection<VirtualPet> getAllPets() {
-        return sonicSuperStars.values();
+    public Collection<VirtualPet> getAllVirtualPets() {
+        return allPets.values();
     }
 
     public void adoptPet(VirtualPet pet) {
-        sonicSuperStars.remove(pet.getPetName(), pet);
+        allPets.remove(pet.getPetName(), pet);
     }
 
     public void feedMyPet() {
-        for (Map.Entry<String, VirtualPet> sonicSuperStars : sonicSuperStars.entrySet()) {
-            VirtualPet food = sonicSuperStars.getValue();
-        VirtualPet.feedMe();
-        }
-    }
-
-    
-    public void hydrateMyPet() {
-        for (Map.Entry<String, VirtualPet> sonicSuperStars : sonicSuperStars.entrySet()) {
-            VirtualPet water = sonicSuperStars.getValue();
-            VirtualPet.hydration();
-        }
-    }
-
-   
-    public void playWithOneFriend(String requestedFriendToPlay) {
-        for (Map.Entry<String, VirtualPet> entry : sonicSuperStars.entrySet()) {
-            String petName = entry.getKey();
-            if (requestedFriendToPlay.equals(petName)) {
-                entry.getValue().running();
+        for (VirtualPet virtualPet : getAllVirtualPets()) {
+            if (virtualPet instanceof Organic) {
+                ((Organic) virtualPet).feedMe();
             }
         }
     }
 
-    public void maintenanceAll() {
-        for (VirtualPet virtualPet : getAllPets()) {
+    public void hydrateMyPet() {
+        for (VirtualPet virtualPet : getAllVirtualPets()) {
+            if (virtualPet instanceof Organic) {
+                ((Organic) virtualPet).hydration();
+            }
+        }
+    }
+
+    public void playWithOnePet() {
+        for (VirtualPet virtualPet : getAllVirtualPets()) {
+            if (virtualPet instanceof OrganicDog) {
+                ((OrganicDog) virtualPet).walk();
+            }
+        }
+    }
+
+    public void maintenanceRoboticPets() {
+        for (VirtualPet virtualPet : getAllVirtualPets()) {
             if (virtualPet instanceof Robotic) {
                 ((Robotic) virtualPet).maintenance();
-
             }
         }
     }
 
     public void oilChangeAll() {
-        for (VirtualPet virtualPet : getAllPets()) {
+        for (VirtualPet virtualPet : getAllVirtualPets()) {
             if (virtualPet instanceof Robotic) {
                 ((Robotic) virtualPet).oilChange();
             }
@@ -80,7 +77,6 @@ public class VirtualPetShelter {
         }
     }
 
-    // update tick for all pets
     public void updateAllTick(Collection<VirtualPet> pets) {
         for (VirtualPet pet : pets) {
             pet.tick();
