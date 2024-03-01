@@ -1,9 +1,20 @@
+package pets_amok;
 public class OrganicDog extends Organic implements Dog {
 
     public OrganicDog(String petName, String petDescription) {
         super(petName, petDescription);
-
+       
     }
+
+    protected static int cageNeedsCleaned = 50;
+
+    public void cleanTheIndDogCage(){
+        cageNeedsCleaned = this.getGetPetWasteInCage();
+      int updatedPetWasteInCage = cageNeedsCleaned- 10;
+      this.setGetPetWasteInCage(updatedPetWasteInCage);
+
+
+  }
 
     @Override
     public void feedMe() {
@@ -47,7 +58,7 @@ public class OrganicDog extends Organic implements Dog {
     }
 
     private int getPetWasteInCage() {
-        return getPetWasteInCage;
+        return this.getPetWasteInCage;
 
     }
 
@@ -64,11 +75,12 @@ public class OrganicDog extends Organic implements Dog {
     @Override
     public void tick() {
 
+
     }
 
     @Override
-    public void currentStatus() {
-
+    public void allPetStatus() {
+       
     }
 
 }

@@ -1,6 +1,7 @@
+package pets_amok;
 public class OrganicCat extends Organic implements Cat {
 
-    protected static int litterBoxNeedsCleaned = 0;
+    protected static int litterBoxNeedsCleaned = 50;
 
     public OrganicCat(String petName, String petDescription) {
         super(petName, petDescription);
@@ -41,13 +42,17 @@ public class OrganicCat extends Organic implements Cat {
     }
 
     @Override
-    public void currentStatus() {
+    public void allPetStatus() {
 
     }
 
-    @Override
-    public void running() {
-      
+    
+    public void cleanTheCommunalLitterBox(){
+          litterBoxNeedsCleaned = this.getGetPetWasteLitterBox();
+        int updatedPetWasteLitterBox = litterBoxNeedsCleaned - 10;
+        this.setGetPetWasteLitterBox(updatedPetWasteLitterBox);
+
+
     }
 
 }

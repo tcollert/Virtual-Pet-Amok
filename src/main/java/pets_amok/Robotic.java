@@ -1,3 +1,4 @@
+package pets_amok;
 import java.util.Random;
 
 public abstract class Robotic extends VirtualPet {

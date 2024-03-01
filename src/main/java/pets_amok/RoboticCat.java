@@ -1,3 +1,4 @@
+package pets_amok;
 public class RoboticCat extends Robotic implements Cat {
 
 
@@ -30,31 +31,16 @@ public class RoboticCat extends Robotic implements Cat {
         
     }
 
-    @Override
-    public void feedMe() {
-       
-    }
 
     @Override
     public void tick() {
         
     }
 
-    @Override
-    public void currentStatus() {
-        
-    }
 
     @Override
-    public void hydration() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'hydration'");
-    }
-
-    @Override
-    public void running() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'running'");
+    public void allPetStatus() {
+    
     }
 
 }

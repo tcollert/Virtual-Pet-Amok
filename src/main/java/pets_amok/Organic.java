@@ -1,3 +1,4 @@
+package pets_amok;
 import java.util.Random;
 
 public abstract class Organic extends VirtualPet {
@@ -7,8 +8,8 @@ public abstract class Organic extends VirtualPet {
         this.petBoredomLevel = 50;
         this.petHungerLevel = 50;
         this.petThirstLevel = 50;
-        this.getPetWasteInCage = 50;
         this.getPetWasteLitterBox = 50;
+        this.getPetWasteInCage = 50;
 
     }
 
@@ -58,20 +59,21 @@ public abstract class Organic extends VirtualPet {
         this.petThirstLevel = petThirstLevel;
     }
 
-    public int getGetPetWasteCage() {
-        return getPetWasteInCage;
-    }
-
-    public void setGetPetWasteCage(int getPetWasteCage) {
-        getPetWasteInCage = getPetWasteCage;
-    }
-
     public int getGetPetWasteLitterBox() {
         return this.getPetWasteLitterBox;
     }
 
     public void setGetPetWasteLitterBox(int getPetWasteLitterBox) {
         this.getPetWasteLitterBox = getPetWasteLitterBox;
+    }
+
+
+    public int getGetPetWasteInCage() {
+        return this.getPetWasteInCage;
+    }
+
+    public void setGetPetWasteInCage(int getPetWasteInCage) {
+        this.getPetWasteInCage = getPetWasteInCage;
     }
 
 }

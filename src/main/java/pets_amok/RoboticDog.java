@@ -1,3 +1,4 @@
+package pets_amok;
 public class RoboticDog extends Robotic implements Dog {
 
 
@@ -40,9 +41,15 @@ public class RoboticDog extends Robotic implements Dog {
       
     }
 
+
     @Override
-    public void currentStatus() {
-      
+    public void walk() {
+ 
+    }
+
+    @Override
+    public void allPetStatus() {
+
     }
 
 }

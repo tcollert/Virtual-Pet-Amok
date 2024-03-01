@@ -1,3 +1,4 @@
+package pets_amok;
 import java.util.Random;
 
 public abstract class VirtualPet {
@@ -43,7 +44,7 @@ public abstract class VirtualPet {
 
     @Override
     public String toString() {
-        return petName + " Pet Health: " + petHealth;
+        return petName + petDescription + ". Pet Health: " + petHealth;
     }
 
     public String getPetName() {
