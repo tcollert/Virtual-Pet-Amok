@@ -1,5 +1,4 @@
 package pets_amok;
-import java.util.Random;
 
 public abstract class VirtualPet {
 
@@ -7,14 +6,6 @@ public abstract class VirtualPet {
     protected String petDescription;
     protected int petHealth;
     protected int petHappiness;
-
-    protected int lowLevel = 0;
-    protected int highLevel = 100;
-    protected int failLevel = (int) (highLevel / 1.25);
-    protected int newAmt = 5;
-    protected int newAmtMult = 4;
-
-    protected Random run = new Random();
 
     public VirtualPet(String petName, String petDescription) {
         this.petName = petName;
@@ -26,13 +17,15 @@ public abstract class VirtualPet {
     public VirtualPet(String petName) {
         this.petName = petName;
 
-        petHappiness += newAmt + newAmtMult;
-        if (petHappiness > highLevel) {
-            petHappiness = highLevel;
-        }
     }
 
+    public void walk() {
 
+    }
+
+    public void cleanADogCage(){
+        
+    }
 
     public abstract void condition();
 
@@ -54,8 +47,6 @@ public abstract class VirtualPet {
     public void setPetName(String petName) {
         this.petName = petName;
     }
-
- 
 
     public String getPetDescription() {
         return this.petDescription;
@@ -80,46 +71,6 @@ public abstract class VirtualPet {
 
     public void setPetHappiness(int petHappiness) {
         this.petHappiness = petHappiness;
-    }
-
-    public int getLowLevel() {
-        return this.lowLevel;
-    }
-
-    public void setLowLevel(int lowLevel) {
-        this.lowLevel = lowLevel;
-    }
-
-    public int gethighLevel() {
-        return this.highLevel;
-    }
-
-    public void setMaxLevel(int highLevel) {
-        this.highLevel = highLevel;
-    }
-
-    public int getFailLevel() {
-        return this.failLevel;
-    }
-
-    public void setFailLevel(int failLevel) {
-        this.failLevel = failLevel;
-    }
-
-    public int getNewAmt() {
-        return this.newAmt;
-    }
-
-    public void setNewAmt(int newAmt) {
-        this.newAmt = newAmt;
-    }
-
-    public int getNewAmtMult() {
-        return this.newAmtMult;
-    }
-
-    public void setNewAmtMult(int newAmtMult) {
-        this.newAmtMult = newAmtMult;
     }
 
 }

@@ -1,13 +1,13 @@
 package pets_amok;
+
 public class OrganicCat extends Organic implements Cat {
 
-    protected static int litterBoxNeedsCleaned = 50;
-
+   
     public OrganicCat(String petName, String petDescription) {
         super(petName, petDescription);
 
     }
-  
+
     @Override
     public void feedMe() {
         int feedMe = this.getPetHungerLevel();
@@ -38,7 +38,24 @@ public class OrganicCat extends Organic implements Cat {
 
     @Override
     public void tick() {
-
+        setPetHungerLevel(this.petHungerLevel += 1);
+        setPetThirstLevel(this.petThirstLevel += 1);
+        setPetBoredomLevel(this.petBoredomLevel + 1);
+        if (this.petHungerLevel < 75) {
+            setPetHealth(this.petHealth -= 1);
+        } 
+        if (this.petThirstLevel < 75) {
+            setPetHealth(this.petHealth -= 1);
+        } 
+        if (this.petBoredomLevel < 25) {
+            setPetHealth(this.petHealth -= 2);
+        }
+         if (this.petHappiness < 25) {
+            setPetHealth(this.petHealth -= 2);
+        }
+         if (this.petHealth > 50) {
+            setPetHappiness(this.petHappiness += 2);
+        }
     }
 
     @Override
@@ -46,13 +63,6 @@ public class OrganicCat extends Organic implements Cat {
 
     }
 
-    
-    public void cleanTheCommunalLitterBox(){
-          litterBoxNeedsCleaned = this.getGetPetWasteLitterBox();
-        int updatedPetWasteLitterBox = litterBoxNeedsCleaned - 10;
-        this.setGetPetWasteLitterBox(updatedPetWasteLitterBox);
 
-
-    }
 
 }

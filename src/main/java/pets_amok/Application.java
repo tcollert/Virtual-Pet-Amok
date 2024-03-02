@@ -1,6 +1,5 @@
 package pets_amok;
 
-import java.util.Collection;
 import java.util.Scanner;
 
 public class Application {
@@ -11,15 +10,15 @@ public class Application {
 
         Scanner input = new Scanner(System.in);
 
-        OrganicDog sonic = new OrganicDog("Sonic ", " The Blue Heeler known as the Blue Blur.");
-        OrganicDog tails = new OrganicDog("Tails ", " A Red Heeler and Sonic's best friend.");
-        OrganicCat amy = new OrganicCat("Amy ", " She is a fun loving calico kitten with lots of energy");
-        OrganicCat blaze = new OrganicCat("Blaze ", "The organge Tabby cat who likes to lay in the sun");
-        RoboticDog robotnik = new RoboticDog("Robotnik ",
+        OrganicDog sonic = new OrganicDog("Sonic", " The Blue Heeler known as the Blue Blur.");
+        OrganicDog tails = new OrganicDog("Tails", " A Red Heeler and Sonic's best friend.");
+        OrganicCat amy = new OrganicCat("Amy", " She is a fun loving calico kitten with lots of energy");
+        OrganicCat blaze = new OrganicCat("Blaze", "The organge Tabby cat who likes to lay in the sun");
+        RoboticDog robotnik = new RoboticDog("Robotnik",
                 " Robotinik is a robot dog who loves science and is a little on the mischievous side.");
-        RoboticDog metalSonic = new RoboticDog("Metal Sonic ",
+        RoboticDog metalSonic = new RoboticDog("Metal Sonic",
                 " Sonic's robotic twin, Metal Sonic is a robotic Blue Heeler.");
-        RoboticCat scratch = new RoboticCat("Scratch ",
+        RoboticCat scratch = new RoboticCat("Scratch",
                 " He is a robotic kitten who loves to hang out with his pal Robotnik and get into trouble.");
         RoboticCat coconuts = new RoboticCat("Coconuts",
                 "Coconuts is a goofy little robotic kitten who loves bananas and thinks she is a monkey");
@@ -33,8 +32,6 @@ public class Application {
         catsAndDogs.addPet(metalSonic);
         catsAndDogs.addPet(scratch);
         catsAndDogs.addPet(coconuts);
-
-        Collection<VirtualPet> collection = catsAndDogs.getAllVirtualPets();
 
         System.out.println(
                 "Hey there! Welcome to our shelter! We are excited to have a new friend to play with. What is your name?");
@@ -60,17 +57,19 @@ public class Application {
             System.out.println(">> [5] Clean a dog cage.");
             System.out.println(">> [6] Oil the robotic pets.");
             System.out.println(">> [7] Maintain the robotic pets.");
-            System.out.println(">> [8] quit");
+            System.out.println(">> [8] Clean the communal litter box.");
+            System.out.println(">> [9] Walk all organic dogs.");
+            System.out.println(">> [10] quit");
 
             int choice = input.nextInt();
 
             if (choice == 0) {
                 System.out.println("Awesome! Who would you like to hang out with today? ");
-                System.out.println(catsAndDogs.getAllVirtualPets());
+                System.out.println(catsAndDogs.getAllOrganicDogs());
                 input.nextLine();
                 String answer = input.nextLine();
                 String organicDogs = answer;
-                catsAndDogs.playWithDogs(organicDogs);
+                catsAndDogs.playWithOneFriend(organicDogs);
                 System.out.println("You played with " + organicDogs);
 
             } else if (choice == 1) {
@@ -85,7 +84,7 @@ public class Application {
                 input.nextLine();
                 String answer = input.nextLine();
                 String petToBeAdopted = answer;
-                catsAndDogs.allPets.remove(petToBeAdopted);
+                catsAndDogs.adoptPet(petToBeAdopted);
                 System.out.println(petToBeAdopted + " has been adopted!");
 
             } else if (choice == 4) {
@@ -126,13 +125,19 @@ public class Application {
                 catsAndDogs.maintenanceRoboticPets();
 
             } else if (choice == 8) {
+                catsAndDogs.cleanTheCommunalLitterBox();
+
+            } else if (choice == 9) {
+                catsAndDogs.playWithAllDogs();
+
+            } else if (choice == 10) {
                 break;
             }
             catsAndDogs.allOrganicPetStatus();
             catsAndDogs.allRoboticPetStatus();
-            catsAndDogs.updateAllTick(collection);
+            catsAndDogs.tick();
         }
-
         input.close();
+
     }
 }

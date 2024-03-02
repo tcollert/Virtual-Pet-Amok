@@ -1,20 +1,20 @@
 package pets_amok;
+
 public class OrganicDog extends Organic implements Dog {
 
     public OrganicDog(String petName, String petDescription) {
         super(petName, petDescription);
-       
+
     }
 
-    protected static int cageNeedsCleaned = 50;
+    protected int cageNeedsCleaned = 50;
 
-    public void cleanTheIndDogCage(){
-        cageNeedsCleaned = this.getGetPetWasteInCage();
-      int updatedPetWasteInCage = cageNeedsCleaned- 10;
-      this.setGetPetWasteInCage(updatedPetWasteInCage);
+    public void cleanADogCage() {
+        cageNeedsCleaned = this.getCageNeedsCleaned();
+        int updatedPetWasteInCage = cageNeedsCleaned - 10;
+        this.setCageNeedsCleaned(updatedPetWasteInCage);
 
-
-  }
+    }
 
     @Override
     public void feedMe() {
@@ -39,32 +39,16 @@ public class OrganicDog extends Organic implements Dog {
 
     }
 
-    public void walk() {
-        if (run.nextBoolean()) {
-            petBoredomLevel -= newAmt + newAmtMult;
-            if (petBoredomLevel < lowLevel) {
-                petBoredomLevel = lowLevel;
-                int petHappiness = this.getPetHealth();
-                int noPooInCage = this.getPetWasteInCage();
-                int updatedPetHealth = petHappiness + 10;
-                int updatedPetWasteCage = noPooInCage - 10;
-                this.setPetHealth(updatedPetHealth);
-                this.setPetWasteInCage(updatedPetWasteCage);
-            }
-        }
-    }
-
-    private void setPetWasteInCage(int updatedPetWasteCage) {
-    }
-
-    private int getPetWasteInCage() {
-        return this.getPetWasteInCage;
-
-    }
-
     @Override
-    public void cleanCage() {
-
+    public void walk() {
+        int petHappiness = this.getPetHealth();
+        int noPooInCage = this.getCageNeedsCleaned();
+        int updatedPetHealth = petHappiness + 10;
+        int updatedPetWasteCage = noPooInCage - 10;
+        int boredomDecrease = this.getPetBoredomLevel();
+        this.setPetBoredomLevel(boredomDecrease - 10);
+        this.setPetHealth(updatedPetHealth);
+        this.setCageNeedsCleaned(updatedPetWasteCage);
     }
 
     @Override
@@ -74,13 +58,41 @@ public class OrganicDog extends Organic implements Dog {
 
     @Override
     public void tick() {
+        setPetHungerLevel(this.petHungerLevel += 1);
+        setPetThirstLevel(this.petThirstLevel += 1);
+        setPetBoredomLevel(this.petBoredomLevel + 1);
+        setCageNeedsCleaned(this.cageNeedsCleaned -= 2);
+        if (this.getCageNeedsCleaned() < 25) {
+            setCageNeedsCleaned(this.cageNeedsCleaned -= 5);
+        }
+        if (this.petHungerLevel < 75) {
+            setPetHealth(this.petHealth -= 1);
+        }
+        if (this.petThirstLevel < 75) {
+            setPetHealth(this.petHealth -= 1);
+        }
+        if (this.petBoredomLevel < 25) {
+            setPetHealth(this.petHealth -= 2);
+        }
+        if (this.petHappiness < 25) {
+            setPetHealth(this.petHealth -= 2);
+        }
+        if (this.petHealth > 50) {
+            setPetHappiness(this.petHappiness += 2);
+        }
+    }
 
+    public int getCageNeedsCleaned() {
+        return this.cageNeedsCleaned;
+    }
 
+    public void setCageNeedsCleaned(int cageNeedsCleaned) {
+        this.cageNeedsCleaned = cageNeedsCleaned;
     }
 
     @Override
     public void allPetStatus() {
-       
+
     }
 
 }

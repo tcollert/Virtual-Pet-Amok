@@ -1,5 +1,4 @@
 package pets_amok;
-import java.util.Random;
 
 public abstract class Organic extends VirtualPet {
 
@@ -8,17 +7,11 @@ public abstract class Organic extends VirtualPet {
         this.petBoredomLevel = 50;
         this.petHungerLevel = 50;
         this.petThirstLevel = 50;
-        this.getPetWasteLitterBox = 50;
-        this.getPetWasteInCage = 50;
 
     }
 
-    protected Random run = new Random();
-
     protected int petHungerLevel;
     protected int petThirstLevel;
-    protected int getPetWasteInCage;
-    protected int getPetWasteLitterBox;
     protected int petBoredomLevel;
 
     public abstract void hydration();
@@ -27,11 +20,16 @@ public abstract class Organic extends VirtualPet {
 
     @Override
     public void tick() {
-        if (petThirstLevel + petBoredomLevel >= gethighLevel()) {
-            setPetHealth(getPetHealth() - getNewAmt());
-            if (getPetHealth() < 0) {
-                setPetHealth(0);
-            }
+        int currentHungerLevel = this.getPetHungerLevel();
+        this.setPetHungerLevel(currentHungerLevel + 1);
+
+        int currentThirstLevel = this.getPetThirstLevel();
+        this.setPetThirstLevel(currentThirstLevel + 1);
+
+        int currentBoredomLevel = this.getPetBoredomLevel();
+        this.setPetBoredomLevel(currentBoredomLevel + 1);
+        if (getPetHealth() < 0) {
+            setPetHealth(0);
         }
     }
 
@@ -57,23 +55,6 @@ public abstract class Organic extends VirtualPet {
 
     public void setPetThirstLevel(int petThirstLevel) {
         this.petThirstLevel = petThirstLevel;
-    }
-
-    public int getGetPetWasteLitterBox() {
-        return this.getPetWasteLitterBox;
-    }
-
-    public void setGetPetWasteLitterBox(int getPetWasteLitterBox) {
-        this.getPetWasteLitterBox = getPetWasteLitterBox;
-    }
-
-
-    public int getGetPetWasteInCage() {
-        return this.getPetWasteInCage;
-    }
-
-    public void setGetPetWasteInCage(int getPetWasteInCage) {
-        this.getPetWasteInCage = getPetWasteInCage;
     }
 
 }

@@ -26,26 +26,14 @@ public class RoboticDog extends Robotic implements Dog {
 
             }
 
-    @Override
-    public void cleanCage() {
-       
-    }
+  
 
     @Override
     public void condition() {
 
     }
 
-    @Override
-    public void tick() {
-      
-    }
 
-
-    @Override
-    public void walk() {
- 
-    }
 
     @Override
     public void allPetStatus() {
