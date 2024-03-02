@@ -1,11 +1,10 @@
-public class Robotic extends VirtualPet implements Dog {
+package pets_amok;
+public class RoboticDog extends Robotic implements Dog {
 
-    int oilLevel = 50;
-    int condition = 50;
 
-    public Robotic(String petName, String petDescription, int petHealth) {
-        super(petName, petDescription, petHealth);
-
+    public RoboticDog(String petName, String petDescription) {
+        super(petName, petDescription);
+      
     }
 
     @Override
@@ -26,5 +25,19 @@ public class Robotic extends VirtualPet implements Dog {
         this.setPetHealth(updatedPetHappiness);
 
             }
+
+  
+
+    @Override
+    public void condition() {
+
+    }
+
+
+
+    @Override
+    public void allPetStatus() {
+
+    }
 
 }
