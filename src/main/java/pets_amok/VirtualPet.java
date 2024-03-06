@@ -2,29 +2,25 @@ package pets_amok;
 
 public abstract class VirtualPet {
 
-    protected String petName;
-    protected String petDescription;
-    protected int petHealth;
-    protected int petHappiness;
+    private String petName;
+    private String petDescription;
+    private int petHealth;
+    private int petHappiness;
 
     public VirtualPet(String petName, String petDescription) {
         this.petName = petName;
         this.petDescription = petDescription;
         this.petHealth = 50;
-
     }
 
     public VirtualPet(String petName) {
         this.petName = petName;
-
     }
 
     public void walk() {
-
     }
 
-    public void cleanADogCage(){
-        
+    public void cleanADogCage() {
     }
 
     public abstract void condition();
@@ -54,7 +50,6 @@ public abstract class VirtualPet {
 
     public void setPetDescription(String petDescription) {
         this.petDescription = petDescription;
-
     }
 
     public int getPetHealth() {
@@ -72,5 +67,4 @@ public abstract class VirtualPet {
     public void setPetHappiness(int petHappiness) {
         this.petHappiness = petHappiness;
     }
-
 }

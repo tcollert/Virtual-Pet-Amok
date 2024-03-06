@@ -4,16 +4,14 @@ public class OrganicDog extends Organic implements Dog {
 
     public OrganicDog(String petName, String petDescription) {
         super(petName, petDescription);
-
     }
 
-    protected int cageNeedsCleaned = 50;
+    private int cageNeedsCleaned = 50;
 
     public void cleanADogCage() {
         cageNeedsCleaned = this.getCageNeedsCleaned();
         int updatedPetWasteInCage = cageNeedsCleaned - 10;
         this.setCageNeedsCleaned(updatedPetWasteInCage);
-
     }
 
     @Override
@@ -21,7 +19,6 @@ public class OrganicDog extends Organic implements Dog {
         int feedMe = this.getPetHungerLevel();
         int updatedHungerLevel = feedMe - 10;
         this.setPetHungerLevel(updatedHungerLevel);
-
     }
 
     @Override
@@ -36,7 +33,6 @@ public class OrganicDog extends Organic implements Dog {
         int health = this.getPetHealth();
         int updatedPetHappiness = health + 10;
         this.setPetHealth(updatedPetHappiness);
-
     }
 
     @Override
@@ -53,7 +49,18 @@ public class OrganicDog extends Organic implements Dog {
 
     @Override
     public void condition() {
+    }
 
+    @Override
+    public void allPetStatus() {
+    }
+    
+    public int getCageNeedsCleaned() {
+        return this.cageNeedsCleaned;
+    }
+
+    public void setCageNeedsCleaned(int cageNeedsCleaned) {
+        this.cageNeedsCleaned = cageNeedsCleaned;
     }
 
     @Override
@@ -81,18 +88,4 @@ public class OrganicDog extends Organic implements Dog {
             setPetHappiness(this.petHappiness += 2);
         }
     }
-
-    public int getCageNeedsCleaned() {
-        return this.cageNeedsCleaned;
-    }
-
-    public void setCageNeedsCleaned(int cageNeedsCleaned) {
-        this.cageNeedsCleaned = cageNeedsCleaned;
-    }
-
-    @Override
-    public void allPetStatus() {
-
-    }
-
 }

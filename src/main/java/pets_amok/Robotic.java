@@ -4,18 +4,30 @@ public abstract class Robotic extends VirtualPet {
 
     public Robotic(String petName, String petDescription) {
         super(petName, petDescription);
-
     }
 
-    protected int oilLevel = 50;
-    protected int condition = 50;
+    private int oilLevel = 50;
+    private int condition = 50;
 
     public void oilChange() {
-
     }
 
     public void maintenance() {
+    }
+    public int getOilLevel() {
+        return this.oilLevel;
+    }
 
+    public void setOilLevel(int oilLevel) {
+        this.oilLevel = oilLevel;
+    }
+
+    public int getCondition() {
+        return this.condition;
+    }
+
+    public void setCondition(int condition) {
+        this.condition = condition;
     }
 
     @Override
@@ -41,21 +53,4 @@ public abstract class Robotic extends VirtualPet {
             setPetHappiness(this.petHappiness += 2);
         }
     }
-
-    public int getOilLevel() {
-        return this.oilLevel;
-    }
-
-    public void setOilLevel(int oilLevel) {
-        this.oilLevel = oilLevel;
-    }
-
-    public int getCondition() {
-        return this.condition;
-    }
-
-    public void setCondition(int condition) {
-        this.condition = condition;
-    }
-
 }

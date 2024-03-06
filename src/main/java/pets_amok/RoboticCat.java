@@ -1,10 +1,9 @@
 package pets_amok;
-public class RoboticCat extends Robotic implements Cat {
 
+public class RoboticCat extends Robotic implements Cat {
 
     public RoboticCat(String petName, String petDescription) {
         super(petName, petDescription);
-        
     }
 
     @Override
@@ -15,7 +14,6 @@ public class RoboticCat extends Robotic implements Cat {
     @Override
     public void maintenance() {
         condition += 10;
-
     }
 
     @Override
@@ -23,24 +21,17 @@ public class RoboticCat extends Robotic implements Cat {
         int health = this.getPetHealth();
         int updatedPetHappiness = health + 10;
         this.setPetHealth(updatedPetHappiness);
-
-            }
+    }
 
     @Override
     public void condition() {
-        
     }
-
 
     @Override
     public void tick() {
-        
     }
-
 
     @Override
     public void allPetStatus() {
-    
     }
-
 }

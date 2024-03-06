@@ -10,28 +10,13 @@ public abstract class Organic extends VirtualPet {
 
     }
 
-    protected int petHungerLevel;
-    protected int petThirstLevel;
-    protected int petBoredomLevel;
+    private int petHungerLevel;
+    private int petThirstLevel;
+    private int petBoredomLevel;
 
     public abstract void hydration();
 
     public abstract void feedMe();
-
-    @Override
-    public void tick() {
-        int currentHungerLevel = this.getPetHungerLevel();
-        this.setPetHungerLevel(currentHungerLevel + 1);
-
-        int currentThirstLevel = this.getPetThirstLevel();
-        this.setPetThirstLevel(currentThirstLevel + 1);
-
-        int currentBoredomLevel = this.getPetBoredomLevel();
-        this.setPetBoredomLevel(currentBoredomLevel + 1);
-        if (getPetHealth() < 0) {
-            setPetHealth(0);
-        }
-    }
 
     public int getPetBoredomLevel() {
         return this.petBoredomLevel;
@@ -56,5 +41,19 @@ public abstract class Organic extends VirtualPet {
     public void setPetThirstLevel(int petThirstLevel) {
         this.petThirstLevel = petThirstLevel;
     }
+    
+    @Override
+    public void tick() {
+        int currentHungerLevel = this.getPetHungerLevel();
+        this.setPetHungerLevel(currentHungerLevel + 1);
 
+        int currentThirstLevel = this.getPetThirstLevel();
+        this.setPetThirstLevel(currentThirstLevel + 1);
+
+        int currentBoredomLevel = this.getPetBoredomLevel();
+        this.setPetBoredomLevel(currentBoredomLevel + 1);
+        if (getPetHealth() < 0) {
+            setPetHealth(0);
+        }
+    }
 }

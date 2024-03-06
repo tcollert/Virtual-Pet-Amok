@@ -105,10 +105,10 @@ public class Application {
                 } else if (petType == "organic" && petCatOrDog == "cat") {
                     catsAndDogs.addPet(new OrganicCat(newPetName, petDescription));
                     System.out.println("Thanks for bringing us a new friend!");
-                } else if (petType == "organic" && petCatOrDog == "dog")
-                    ;
-                catsAndDogs.addPet(new OrganicDog(newPetName, petDescription));
-                System.out.println("Thanks for bringing us a new friend!");
+                } else if (petType.equals("organic") && petCatOrDog.equals("dog")) {
+                    catsAndDogs.addPet(new OrganicDog(newPetName, petDescription));
+                    System.out.println("Thanks for bringing us a new friend!");
+                }
 
             } else if (choice == 5) {
                 System.out.println("Whose cage would you like to clean...Sonic or Tails?");
@@ -133,11 +133,12 @@ public class Application {
             } else if (choice == 10) {
                 break;
             }
+
             catsAndDogs.allOrganicPetStatus();
             catsAndDogs.allRoboticPetStatus();
             catsAndDogs.tick();
         }
-        input.close();
 
+        input.close();
     }
 }
