@@ -57,7 +57,7 @@ public class VirtualPetTest {
 
     @Test
     public void oilTest() {
-        underTestRD.oilChange();
+        underTestRD.performOilChange();
         int check = underTestRD.getOilLevel();
         assertEquals(60, check);
 
@@ -65,7 +65,7 @@ public class VirtualPetTest {
 
     @Test
     public void maintenanceTest() {
-        underTestRD.maintenance();
+        underTestRD.performMaintenance();
         int check = underTestRD.getCondition();
         assertEquals(60, check);
 

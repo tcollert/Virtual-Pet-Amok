@@ -1,10 +1,7 @@
 package pets_amok;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.Collection;
 import java.util.Map;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +39,7 @@ public class VirtualPetShelterTest {
 
     @Test
     public void hungerTest() {
-        catsAndDogs.feedMyPet();
+        catsAndDogs.feedOrganicPets();
 
         for (Map.Entry<String, VirtualPet> entry : catsAndDogs.allPets.entrySet()) {
             if (entry.getValue() instanceof Organic) {
@@ -53,7 +50,7 @@ public class VirtualPetShelterTest {
 
     @Test
     public void thirstTest() {
-        catsAndDogs.hydrateMyPet();
+        catsAndDogs.hydrateOrganicPets();
 
         for (Map.Entry<String, VirtualPet> entry : catsAndDogs.allPets.entrySet()) {
             if (entry.getValue() instanceof Organic) {
@@ -66,10 +63,10 @@ public class VirtualPetShelterTest {
     @Test
     public void boredomTest() {
         String petName = "sonic";
-        catsAndDogs.playWithOneFriend(petName);
+        catsAndDogs.walkOneOrganicDog(petName);
 
         for (Map.Entry<String, VirtualPet> entry : catsAndDogs.allPets.entrySet()) {
-            if (entry.getValue() instanceof Organic){
+            if (entry.getValue() instanceof Organic) {
                 if (petName.equals(entry.getKey())) {
                     assertEquals(40, ((Organic) entry.getValue()).getPetBoredomLevel());
                 } else {
@@ -83,7 +80,6 @@ public class VirtualPetShelterTest {
     @Test
     public void tickTest1() {
 
-        Collection<VirtualPet> collection = catsAndDogs.getAllVirtualPets();
         catsAndDogs.tick();
 
         for (Map.Entry<String, VirtualPet> entry : catsAndDogs.allPets.entrySet()) {
@@ -99,7 +95,7 @@ public class VirtualPetShelterTest {
     @Test
     public void testAdopt() {
 
-        catsAndDogs.adoptPet("sonic");
+        catsAndDogs.adoptPet("Sonic");
 
         assertEquals(8, catsAndDogs.allPets.size());
 
