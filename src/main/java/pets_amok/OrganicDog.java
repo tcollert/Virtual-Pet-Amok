@@ -7,8 +7,8 @@ public class OrganicDog extends Organic implements Dog {
     }
 
     private int cageNeedsCleaned = 50;
-
-    public void cleanADogCage() {
+    
+    public void cleanDogCages() {
         cageNeedsCleaned = this.getCageNeedsCleaned();
         int updatedPetWasteInCage = cageNeedsCleaned - 10;
         this.setCageNeedsCleaned(updatedPetWasteInCage);
@@ -28,12 +28,6 @@ public class OrganicDog extends Organic implements Dog {
         this.setPetThirstLevel(updatedThirstLevel);
     }
 
-    @Override
-    public void petHappiness() {
-        int health = this.getPetHealth();
-        int updatedPetHappiness = health + 10;
-        this.setPetHealth(updatedPetHappiness);
-    }
 
     @Override
     public void walk() {
@@ -65,27 +59,32 @@ public class OrganicDog extends Organic implements Dog {
 
     @Override
     public void tick() {
-        setPetHungerLevel(this.petHungerLevel += 1);
-        setPetThirstLevel(this.petThirstLevel += 1);
-        setPetBoredomLevel(this.petBoredomLevel + 1);
+        int newPetHungerLevel = getPetHungerLevel() +1;
+        setPetHungerLevel(newPetHungerLevel);
+        int newPetThirstLevel = getPetThirstLevel() +1;
+        setPetThirstLevel(newPetThirstLevel);
+        int newPetBoredomLevel = getPetBoredomLevel() +1;
+        setPetBoredomLevel(newPetBoredomLevel += 1);
+        int newPetHealth = getPetHealth();
+        int newPetHappiness = getPetHappiness();
         setCageNeedsCleaned(this.cageNeedsCleaned -= 2);
         if (this.getCageNeedsCleaned() < 25) {
             setCageNeedsCleaned(this.cageNeedsCleaned -= 5);
         }
-        if (this.petHungerLevel < 75) {
-            setPetHealth(this.petHealth -= 1);
+        if (newPetHungerLevel < 75) {
+            setPetHealth(newPetHealth -= 1);
         }
-        if (this.petThirstLevel < 75) {
-            setPetHealth(this.petHealth -= 1);
+        if (newPetThirstLevel < 75) {
+            setPetHealth(newPetHealth -= 1);
         }
-        if (this.petBoredomLevel < 25) {
-            setPetHealth(this.petHealth -= 2);
+        if (newPetBoredomLevel < 25) {
+            setPetHealth(newPetHealth -= 2);
         }
-        if (this.petHappiness < 25) {
-            setPetHealth(this.petHealth -= 2);
+        if (newPetHappiness < 25) {
+            setPetHealth(newPetHealth -= 2);
         }
-        if (this.petHealth > 50) {
-            setPetHappiness(this.petHappiness += 2);
+        if (newPetHealth > 50) {
+            setPetHappiness(newPetHappiness += 2);
         }
     }
 }

@@ -17,6 +17,12 @@ public abstract class VirtualPet {
         this.petName = petName;
     }
 
+    public void petHappiness() {
+        int health = this.getPetHealth();
+        int updatedPetHappiness = health + 10;
+        this.setPetHealth(updatedPetHappiness);
+    }
+
     public void walk() {
     }
 
@@ -24,8 +30,6 @@ public abstract class VirtualPet {
     }
 
     public abstract void condition();
-
-    public abstract void petHappiness();
 
     public abstract void tick();
 

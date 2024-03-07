@@ -13,7 +13,7 @@ public class Application {
         OrganicDog sonic = new OrganicDog("Sonic", " The Blue Heeler known as the Blue Blur.");
         OrganicDog tails = new OrganicDog("Tails", " A Red Heeler and Sonic's best friend.");
         OrganicCat amy = new OrganicCat("Amy", " She is a fun loving calico kitten with lots of energy");
-        OrganicCat blaze = new OrganicCat("Blaze", "The organge Tabby cat who likes to lay in the sun");
+        OrganicCat blaze = new OrganicCat("Blaze", " The organge Tabby cat who likes to lay in the sun");
         RoboticDog robotnik = new RoboticDog("Robotnik",
                 " Robotinik is a robot dog who loves science and is a little on the mischievous side.");
         RoboticDog metalSonic = new RoboticDog("Metal Sonic",
@@ -21,7 +21,7 @@ public class Application {
         RoboticCat scratch = new RoboticCat("Scratch",
                 " He is a robotic kitten who loves to hang out with his pal Robotnik and get into trouble.");
         RoboticCat coconuts = new RoboticCat("Coconuts",
-                "Coconuts is a goofy little robotic kitten who loves bananas and thinks she is a monkey");
+                " Coconuts is a goofy little robotic kitten who loves bananas and thinks she is a monkey");
 
         // adding pets to map
         catsAndDogs.addPet(sonic);
@@ -49,16 +49,16 @@ public class Application {
         while (true) {
 
             System.out.println("What should we do today?");
-            System.out.println(">> [0] Take a walk with Sonic and Tails");
+            System.out.println(">> [0] Take a walk with one organic dog");
             System.out.println(">> [1] Feed the organic pets.");
             System.out.println(">> [2] Chill and have some Vitamin water with your organic pals.");
             System.out.println(">> [3] Adopt a friend to spend the day with.");
             System.out.println(">> [4] Bring a new friend for us at the Shelter.");
-            System.out.println(">> [5] Clean a dog cage.");
+            System.out.println(">> [5] Clean the dog cages.");
             System.out.println(">> [6] Oil the robotic pets.");
             System.out.println(">> [7] Maintain the robotic pets.");
             System.out.println(">> [8] Clean the communal litter box.");
-            System.out.println(">> [9] Walk all organic dogs.");
+            System.out.println(">> [9] Walk all dogs.");
             System.out.println(">> [10] quit");
 
             int choice = input.nextInt();
@@ -69,14 +69,14 @@ public class Application {
                 input.nextLine();
                 String answer = input.nextLine();
                 String organicDogs = answer;
-                catsAndDogs.playWithOneFriend(organicDogs);
+                catsAndDogs.walkOneOrganicDog(organicDogs);
                 System.out.println("You played with " + organicDogs);
 
             } else if (choice == 1) {
-                catsAndDogs.feedMyPet();
+                catsAndDogs.feedOrganicPets();
 
             } else if (choice == 2) {
-                catsAndDogs.hydrateMyPet();
+                catsAndDogs.hydrateOrganicPets();
 
             } else if (choice == 3) {
                 System.out.println("Which pet would you like to adopt?");
@@ -111,15 +111,11 @@ public class Application {
                 }
 
             } else if (choice == 5) {
-                System.out.println("Whose cage would you like to clean...Sonic or Tails?");
-                input.nextLine();
-                String answer = input.nextLine();
-                String cleanCage = answer;
-                catsAndDogs.cleanADogCage();
-                System.out.println("Thanks for cleaning " + cleanCage + "'s cage!");
+                catsAndDogs.cleanDogCages();
+                System.out.println("Thanks for cleaning the dog cages!");
 
             } else if (choice == 6) {
-                catsAndDogs.oilChangeAll();
+                catsAndDogs.performOilChangeAll();
 
             } else if (choice == 7) {
                 catsAndDogs.maintenanceRoboticPets();
@@ -128,9 +124,10 @@ public class Application {
                 catsAndDogs.cleanTheCommunalLitterBox();
 
             } else if (choice == 9) {
-                catsAndDogs.playWithAllDogs();
+                catsAndDogs.walkAllDogs();
 
             } else if (choice == 10) {
+                System.out.println("Thanks for playing " + newFriendsName + "!");
                 break;
             }
 

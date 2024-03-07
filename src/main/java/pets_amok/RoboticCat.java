@@ -7,20 +7,15 @@ public class RoboticCat extends Robotic implements Cat {
     }
 
     @Override
-    public void oilChange() {
-        oilLevel += 10;
+    public void performOilChange() {
+        int newLevel = getOilLevel() +10;
+        setOilLevel(newLevel);
     }
 
     @Override
-    public void maintenance() {
-        condition += 10;
-    }
-
-    @Override
-    public void petHappiness() {
-        int health = this.getPetHealth();
-        int updatedPetHappiness = health + 10;
-        this.setPetHealth(updatedPetHappiness);
+    public void performMaintenance() {
+        int newCondition = getCondition() +10;
+        setCondition(newCondition);
     }
 
     @Override

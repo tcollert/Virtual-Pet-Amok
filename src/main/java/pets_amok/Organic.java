@@ -14,7 +14,9 @@ public abstract class Organic extends VirtualPet {
     private int petThirstLevel;
     private int petBoredomLevel;
 
+
     public abstract void hydration();
+
 
     public abstract void feedMe();
 
