@@ -21,34 +21,16 @@ public class OrganicCat extends Organic implements Cat {
     }
 
     @Override
-    public void petHappiness() {
-    }
-
-    @Override
-    public void condition() {
-    }
-    
-    @Override
-    public void allPetStatus() {
-    }
-
-    @Override
     public void tick() {
-        int newPetHungerLevel = getPetHungerLevel() +1;
-        setPetHungerLevel(newPetHungerLevel);
-        int newPetThirstLevel = getPetThirstLevel() +1;
-        setPetThirstLevel(newPetThirstLevel);
-        int newPetBoredomLevel = getPetBoredomLevel() +1;
-        setPetBoredomLevel(newPetBoredomLevel += 1);
         int newPetHealth = getPetHealth();
         int newPetHappiness = getPetHappiness();
-        if (newPetHungerLevel < 75) {
+        if (this.getPetHungerLevel() < 75) {
             setPetHealth(newPetHealth -= 1);
         }
-        if (newPetThirstLevel < 75) {
+        if (this.getPetThirstLevel() < 75) {
             setPetHealth(newPetHealth -= 1);
         }
-        if (newPetBoredomLevel < 25) {
+        if (this.getPetBoredomLevel() < 25) {
             setPetHealth(newPetHealth -= 2);
         }
         if (newPetHappiness < 25) {
@@ -57,5 +39,13 @@ public class OrganicCat extends Organic implements Cat {
         if (newPetHealth > 50) {
             setPetHappiness(newPetHappiness += 2);
         }
+    }
+
+    @Override
+    public void condition() {
+    }
+
+    @Override
+    public void allPetStatus() {
     }
 }
