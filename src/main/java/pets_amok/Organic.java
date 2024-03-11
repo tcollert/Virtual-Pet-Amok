@@ -2,24 +2,25 @@ package pets_amok;
 
 public abstract class Organic extends VirtualPet {
 
+    private int petHungerLevel;
+    private int petThirstLevel;
+    private int petBoredomLevel;
+
     public Organic(String petName, String petDescription) {
         super(petName, petDescription);
         this.petBoredomLevel = 50;
         this.petHungerLevel = 50;
         this.petThirstLevel = 50;
-
     }
 
-    private int petHungerLevel;
-    private int petThirstLevel;
-    private int petBoredomLevel;
+    public void feedMe() {
+    
+    }
 
+    public void hydration() {
 
-    public abstract void hydration();
-
-
-    public abstract void feedMe();
-
+    }
+    
     public int getPetBoredomLevel() {
         return this.petBoredomLevel;
     }

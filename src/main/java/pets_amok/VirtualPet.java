@@ -23,23 +23,6 @@ public abstract class VirtualPet {
         this.setPetHealth(updatedPetHappiness);
     }
 
-    public void walk() {
-    }
-
-    public void cleanADogCage() {
-    }
-
-    public abstract void condition();
-
-    public abstract void tick();
-
-    public abstract void allPetStatus();
-
-    @Override
-    public String toString() {
-        return petName + petDescription + ". Pet Health: " + petHealth;
-    }
-
     public String getPetName() {
         return this.petName;
     }
@@ -70,5 +53,22 @@ public abstract class VirtualPet {
 
     public void setPetHappiness(int petHappiness) {
         this.petHappiness = petHappiness;
+    }
+
+    public void walk() {
+    }
+
+    public void cleanADogCage() {
+    }
+
+    public abstract void condition();
+
+    public abstract void tick();
+
+    public abstract void allPetStatus();
+
+    @Override
+    public String toString() {
+        return petName + petDescription + ". Pet Health: " + petHealth;
     }
 }

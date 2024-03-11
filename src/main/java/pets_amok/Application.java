@@ -97,12 +97,12 @@ public class Application {
                 String petType = input.nextLine();
                 System.out.println("Is your pet a cat or dog?");
                 String petCatOrDog = input.nextLine();
-                if (petType == "robotic" && petCatOrDog == "cat") {
+                if (petType.equals("robotic") && petCatOrDog.equals("cat")) {
                     catsAndDogs.addPet(new RoboticCat(newPetName, petDescription));
-                } else if (petType == "robotic" && petCatOrDog == "dog") {
+                } else if (petType.equals("robotic") && petCatOrDog.equals ("dog")) {
                     catsAndDogs.addPet(new RoboticDog(newPetName, petDescription));
                     System.out.println("Thanks for bringing us a new friend!");
-                } else if (petType == "organic" && petCatOrDog == "cat") {
+                } else if (petType.equals ("organic") && petCatOrDog.equals("cat")) {
                     catsAndDogs.addPet(new OrganicCat(newPetName, petDescription));
                     System.out.println("Thanks for bringing us a new friend!");
                 } else if (petType.equals("organic") && petCatOrDog.equals("dog")) {

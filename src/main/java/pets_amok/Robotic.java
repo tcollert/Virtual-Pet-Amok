@@ -2,17 +2,11 @@ package pets_amok;
 
 public abstract class Robotic extends VirtualPet {
 
-    public Robotic(String petName, String petDescription) {
-        super(petName, petDescription);
-    }
-
     private int oilLevel = 50;
     private int condition = 50;
 
-    public void performOilChange() {
-    }
-
-    public void performMaintenance() {
+    public Robotic(String petName, String petDescription) {
+        super(petName, petDescription);
     }
 
     public int getOilLevel() {
@@ -29,6 +23,12 @@ public abstract class Robotic extends VirtualPet {
 
     public void setCondition(int condition) {
         this.condition = condition;
+    }
+
+    public void performMaintenance() {
+    }
+
+    public void performOilChange() {
     }
 
     @Override

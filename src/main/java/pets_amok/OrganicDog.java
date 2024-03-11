@@ -2,12 +2,12 @@ package pets_amok;
 
 public class OrganicDog extends Organic implements Dog {
 
+    private int cageNeedsCleaned = 50;
+
     public OrganicDog(String petName, String petDescription) {
         super(petName, petDescription);
     }
 
-    private int cageNeedsCleaned = 50;
-    
     public void cleanDogCages() {
         cageNeedsCleaned = this.getCageNeedsCleaned();
         int updatedPetWasteInCage = cageNeedsCleaned - 10;
@@ -27,7 +27,6 @@ public class OrganicDog extends Organic implements Dog {
         int updatedThirstLevel = hydration - 10;
         this.setPetThirstLevel(updatedThirstLevel);
     }
-
 
     @Override
     public void walk() {
@@ -59,25 +58,19 @@ public class OrganicDog extends Organic implements Dog {
 
     @Override
     public void tick() {
-        int newPetHungerLevel = getPetHungerLevel() +1;
-        setPetHungerLevel(newPetHungerLevel);
-        int newPetThirstLevel = getPetThirstLevel() +1;
-        setPetThirstLevel(newPetThirstLevel);
-        int newPetBoredomLevel = getPetBoredomLevel() +1;
-        setPetBoredomLevel(newPetBoredomLevel += 1);
         int newPetHealth = getPetHealth();
         int newPetHappiness = getPetHappiness();
         setCageNeedsCleaned(this.cageNeedsCleaned -= 2);
         if (this.getCageNeedsCleaned() < 25) {
             setCageNeedsCleaned(this.cageNeedsCleaned -= 5);
         }
-        if (newPetHungerLevel < 75) {
+        if (this.getPetHungerLevel() < 75) {
             setPetHealth(newPetHealth -= 1);
         }
-        if (newPetThirstLevel < 75) {
+        if (this.getPetThirstLevel() < 75) {
             setPetHealth(newPetHealth -= 1);
         }
-        if (newPetBoredomLevel < 25) {
+        if (this.getPetBoredomLevel() < 25) {
             setPetHealth(newPetHealth -= 2);
         }
         if (newPetHappiness < 25) {

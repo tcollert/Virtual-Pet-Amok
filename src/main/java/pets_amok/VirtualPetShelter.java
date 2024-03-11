@@ -131,10 +131,11 @@ public class VirtualPetShelter {
     }
 
     public void tick() {
-        for (VirtualPet pet : this.getAllVirtualPets()) {
-            pet.tick();
+        for (VirtualPet allVirtualPets : this.getAllVirtualPets()) {
+            allVirtualPets.tick();
         }
-        for (VirtualPet pet : this.getAllOrganicCats()) {
+
+        for (int cat = 0; cat < getAllOrganicCats().size(); cat++) {
             litterBoxNeedsCleaned = this.getLitterBoxNeedsCleaned();
             int updatedPetWasteLitterBox = litterBoxNeedsCleaned + 10;
             this.setLitterBoxNeedsCleaned(updatedPetWasteLitterBox);
