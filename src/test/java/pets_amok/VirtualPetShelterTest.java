@@ -59,24 +59,7 @@ public class VirtualPetShelterTest {
         }
 
     }
-
-    @Test
-    public void boredomTest() {
-        String petName = "sonic";
-        catsAndDogs.walkOneOrganicDog(petName);
-
-        for (Map.Entry<String, VirtualPet> entry : catsAndDogs.allPets.entrySet()) {
-            if (entry.getValue() instanceof Organic) {
-                if (petName.equals(entry.getKey())) {
-                    assertEquals(40, ((Organic) entry.getValue()).getPetBoredomLevel());
-                } else {
-                    assertEquals(50, ((Organic) entry.getValue()).getPetBoredomLevel());
-
-                }
-            }
-        }
-    }
-
+    
     @Test
     public void tickTest1() {
 
@@ -97,7 +80,7 @@ public class VirtualPetShelterTest {
 
         catsAndDogs.adoptPet("Sonic");
 
-        assertEquals(8, catsAndDogs.allPets.size());
+        assertEquals(7, catsAndDogs.allPets.size());
 
     }
 

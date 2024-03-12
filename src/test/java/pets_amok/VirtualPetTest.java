@@ -73,7 +73,7 @@ public class VirtualPetTest {
 
     @Test
     public void dogCageTest() {
-        underTestOD.cleanADogCage();
+        underTestOD.cleanDogCages();
         int check = underTestOD.getCageNeedsCleaned();
         assertEquals(50, check);
 

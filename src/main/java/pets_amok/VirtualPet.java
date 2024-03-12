@@ -55,17 +55,7 @@ public abstract class VirtualPet {
         this.petHappiness = petHappiness;
     }
 
-    public void walk() {
-    }
-
-    public void cleanADogCage() {
-    }
-
-    public abstract void condition();
-
     public abstract void tick();
-
-    public abstract void allPetStatus();
 
     @Override
     public String toString() {
