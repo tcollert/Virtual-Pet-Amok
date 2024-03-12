@@ -14,11 +14,15 @@ public abstract class Organic extends VirtualPet {
     }
 
     public void feedMe() {
-    
+        int feedMe = this.getPetHungerLevel();
+        int updatedHungerLevel = feedMe - 10;
+        this.setPetHungerLevel(updatedHungerLevel);
     }
 
     public void hydration() {
-
+        int hydration = this.getPetThirstLevel();
+        int updatedThirstLevel = hydration - 10;
+        this.setPetThirstLevel(updatedThirstLevel);
     }
     
     public int getPetBoredomLevel() {
@@ -57,6 +61,24 @@ public abstract class Organic extends VirtualPet {
         this.setPetBoredomLevel(currentBoredomLevel + 1);
         if (getPetHealth() < 0) {
             setPetHealth(0);
+        }
+
+        int newPetHealth = getPetHealth();
+        int newPetHappiness = getPetHappiness();
+        if (this.getPetHungerLevel() < 75) {
+            setPetHealth(newPetHealth -= 1);
+        }
+        if (this.getPetThirstLevel() < 75) {
+            setPetHealth(newPetHealth -= 1);
+        }
+        if (this.getPetBoredomLevel() < 25) {
+            setPetHealth(newPetHealth -= 2);
+        }
+        if (newPetHappiness < 25) {
+            setPetHealth(newPetHealth -= 2);
+        }
+        if (newPetHealth > 50) {
+            setPetHappiness(newPetHappiness += 2);
         }
     }
 }

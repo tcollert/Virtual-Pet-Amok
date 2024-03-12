@@ -14,21 +14,6 @@ public class OrganicDog extends Organic implements Dog {
         this.setCageNeedsCleaned(updatedPetWasteInCage);
     }
 
-    @Override
-    public void feedMe() {
-        int feedMe = this.getPetHungerLevel();
-        int updatedHungerLevel = feedMe - 10;
-        this.setPetHungerLevel(updatedHungerLevel);
-    }
-
-    @Override
-    public void hydration() {
-        int hydration = this.getPetThirstLevel();
-        int updatedThirstLevel = hydration - 10;
-        this.setPetThirstLevel(updatedThirstLevel);
-    }
-
-    @Override
     public void walk() {
         int petHappiness = this.getPetHealth();
         int noPooInCage = this.getCageNeedsCleaned();
@@ -40,14 +25,6 @@ public class OrganicDog extends Organic implements Dog {
         this.setCageNeedsCleaned(updatedPetWasteCage);
     }
 
-    @Override
-    public void condition() {
-    }
-
-    @Override
-    public void allPetStatus() {
-    }
-    
     public int getCageNeedsCleaned() {
         return this.cageNeedsCleaned;
     }
@@ -58,26 +35,10 @@ public class OrganicDog extends Organic implements Dog {
 
     @Override
     public void tick() {
-        int newPetHealth = getPetHealth();
-        int newPetHappiness = getPetHappiness();
+        super.tick();
         setCageNeedsCleaned(this.cageNeedsCleaned -= 2);
         if (this.getCageNeedsCleaned() < 25) {
             setCageNeedsCleaned(this.cageNeedsCleaned -= 5);
-        }
-        if (this.getPetHungerLevel() < 75) {
-            setPetHealth(newPetHealth -= 1);
-        }
-        if (this.getPetThirstLevel() < 75) {
-            setPetHealth(newPetHealth -= 1);
-        }
-        if (this.getPetBoredomLevel() < 25) {
-            setPetHealth(newPetHealth -= 2);
-        }
-        if (newPetHappiness < 25) {
-            setPetHealth(newPetHealth -= 2);
-        }
-        if (newPetHealth > 50) {
-            setPetHappiness(newPetHappiness += 2);
         }
     }
 }

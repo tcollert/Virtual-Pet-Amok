@@ -84,10 +84,9 @@ public class VirtualPetShelter {
     }
 
     public void walkOneOrganicDog(String requestedFriendToPlay) {
-        for (Map.Entry<String, VirtualPet> entry : allPets.entrySet()) {
-            String petName = entry.getKey();
-            if (requestedFriendToPlay.equals(petName)) {
-                entry.getValue().walk();
+        for (VirtualPet virtualPet : getAllOrganicDogs()) {
+            if (requestedFriendToPlay.equals(virtualPet.getPetName())) {
+              ((OrganicDog) virtualPet).walk();
             }
         }
     }
@@ -146,7 +145,6 @@ public class VirtualPetShelter {
     public void allOrganicPetStatus() {
         for (VirtualPet virtualPet : getAllVirtualPets()) {
             if (virtualPet instanceof OrganicDog) {
-                ((OrganicDog) virtualPet).allPetStatus();
 
                 System.out.println(
                         "\nORGANIC DOG NAME|HUNGER|THIRST\t|BOREDOM|DESCRIPTION\t\t\t\t|HEALTH|CAGE CLEANLINESS\t|");
@@ -162,7 +160,6 @@ public class VirtualPetShelter {
             System.out.println(
                     "----------------------------------------------------------------------------------------------------");
             if (virtualPet instanceof OrganicCat) {
-                ((OrganicCat) virtualPet).allPetStatus();
 
                 System.out.println(
                         "\nORGANIC CAT NAME|HUNGER|THIRST\t|BOREDOM|DESCRIPTION\t\t\t\t\t|HEALTH|LITTER BOX CLEANLINESS\t"
@@ -181,7 +178,6 @@ public class VirtualPetShelter {
     public void allRoboticPetStatus() {
         for (VirtualPet virtualPet : getAllVirtualPets()) {
             if (virtualPet instanceof Robotic) {
-                ((Robotic) virtualPet).allPetStatus();
 
                 System.out.println(
                         "\nROBOTIC NAME\t\t|OIL LEVEL|CONDITION|DESCRIPTION\t\t\t\t\t\t\t\t\t|HEALTH\t\t\t\t\t\t\t\t\t|");

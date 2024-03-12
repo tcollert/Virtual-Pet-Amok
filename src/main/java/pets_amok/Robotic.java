@@ -26,9 +26,13 @@ public abstract class Robotic extends VirtualPet {
     }
 
     public void performMaintenance() {
+        int newCondition = getCondition() +10;
+        setCondition(newCondition);
     }
 
     public void performOilChange() {
+        int newLevel = getOilLevel() +10;
+        setOilLevel(newLevel);
     }
 
     @Override
