@@ -86,7 +86,7 @@ public class VirtualPetShelter {
     public void walkOneOrganicDog(String requestedFriendToPlay) {
         for (VirtualPet virtualPet : getAllOrganicDogs()) {
             if (requestedFriendToPlay.equals(virtualPet.getPetName())) {
-              ((OrganicDog) virtualPet).walk();
+                ((OrganicDog) virtualPet).walk();
             }
         }
     }
@@ -95,6 +95,10 @@ public class VirtualPetShelter {
         for (VirtualPet virtualPet : getAllVirtualPets()) {
             if (virtualPet instanceof OrganicDog) {
                 ((OrganicDog) virtualPet).walk();
+            } else {
+                if (virtualPet instanceof RoboticDog) {
+                    ((RoboticDog) virtualPet).walk();
+                }
             }
         }
     }
