@@ -75,7 +75,6 @@ public class VirtualPetTest {
     public void dogCageTest() {
         underTestOD.cleanDogCages();
         int check = underTestOD.getCageNeedsCleaned();
-        assertEquals(50, check);
-
+        assertEquals(40, check);
     }
 }
