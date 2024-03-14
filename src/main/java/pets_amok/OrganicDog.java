@@ -7,6 +7,14 @@ public class OrganicDog extends Organic implements Dog {
     public OrganicDog(String petName, String petDescription) {
         super(petName, petDescription);
     }
+    
+    public int getCageNeedsCleaned() {
+        return this.cageNeedsCleaned;
+    }
+
+    public void setCageNeedsCleaned(int cageNeedsCleaned) {
+        this.cageNeedsCleaned = cageNeedsCleaned;
+    }
 
     public void cleanDogCages() {
         cageNeedsCleaned = this.getCageNeedsCleaned();
@@ -23,14 +31,6 @@ public class OrganicDog extends Organic implements Dog {
         this.setPetBoredomLevel(boredomDecrease - 10);
         this.setPetHealth(updatedPetHealth);
         this.setCageNeedsCleaned(updatedPetWasteCage);
-    }
-
-    public int getCageNeedsCleaned() {
-        return this.cageNeedsCleaned;
-    }
-
-    public void setCageNeedsCleaned(int cageNeedsCleaned) {
-        this.cageNeedsCleaned = cageNeedsCleaned;
     }
 
     @Override

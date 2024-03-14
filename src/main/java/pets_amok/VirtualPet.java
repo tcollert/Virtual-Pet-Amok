@@ -17,12 +17,6 @@ public abstract class VirtualPet {
         this.petName = petName;
     }
 
-    public void petHappiness() {
-        int health = this.getPetHealth();
-        int updatedPetHappiness = health + 10;
-        this.setPetHealth(updatedPetHappiness);
-    }
-
     public String getPetName() {
         return this.petName;
     }
@@ -53,6 +47,12 @@ public abstract class VirtualPet {
 
     public void setPetHappiness(int petHappiness) {
         this.petHappiness = petHappiness;
+    }
+    
+    public void petHappiness() {
+        int health = this.getPetHealth();
+        int updatedPetHappiness = health + 10;
+        this.setPetHealth(updatedPetHappiness);
     }
 
     public abstract void tick();
